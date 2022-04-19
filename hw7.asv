@@ -1,0 +1,69 @@
+function hw7
+
+    clc;
+
+    % -------------- Load data --------------
+    v = load("hwk7-1.mat").Y;
+    m = length(v);
+
+    % -------------- Find delta_phi GML --------------
+    delta_phi = linspace(0, 2*pi, 500);
+    GML = zeros(1,500);
+    for i = 1:length(delta_phi)
+
+        % calculate steering vector
+        a = exp((0:m-1)' * -1j * delta_phi(i));
+
+        % calculate delta phi estimate
+        GML(i) = abs(a'*v);
+
+    end
+
+    % -------------- visualize GML function -------------- 
+
+    % visualize GML function
+    plot(GML);
+
+    % find delta_phi that maximizes GMl function
+    [~, i_max] = max(GML);
+    delta_phi_gml = delta_phi(i_max);
+
+    disp("delta_phi_gml (rad):")
+    disp(delta_phi_gml)
+
+    % convert delta phi to theta
+    f0 = 3E9;
+    c = 3E8;
+    d = 0.05;
+
+    theta_gml = rad2deg(asin(delta_phi_gml*c / (2*pi*f0*d)));
+
+    disp("theta_gml (rad):")
+    disp(theta_gml);
+
+    % generate noiseless signal:
+    theta = pi/4;
+    c = 3E8;
+    d = .05;
+
+    A = 4;                   % Amplitude
+    f0 = 3E3;                % 3 KHz frequency (what is this)?
+    t0 = linspace(0,5,100);  % observe for 5 seconds
+    
+    s_t = A*cos(2*pi*t0*f0);          % source signal
+    s_t = real(A*exp(1j*2*pi*f0*t0)); % baseband equivalent
+
+    % observe at t=3s
+    t_obs = 3;
+    delta_t = d*sin(theta)/c;
+
+    v_t = zeros(16,1);
+    for m = 1:16
+        v_t(m) = s_t(t_obs + m*delta_t);
+    end
+    
+    disp(v_t)
+
+
+
+end
