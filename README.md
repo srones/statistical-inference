@@ -5,13 +5,13 @@ using various decision rules and hypothesis testing.
 
 ### HW1
 
-This script simulates the signal absent or present  in gaussian noise scenario, where the ML (Maximum Likelihood) decision rule is used to determine if the given observation is noise or a signal based on the known SNR (signal to noise ratio). 10,000 trials were run for 16 SNR values ranging from 0 to 15 and the truth labels were used to calculate the probability of error, false positive, and false negative. The plot below confirms that a higher SNR yields a lower probability of error.
+This script simulates the signal absent or present  in gaussian noise scenario, where the Maximum Likelihood [(ML)](https://hkn.illinois.edu/wiki/wiki:fundamental_mathematics:hypothesis_testing#:~:text=Maximum%20Likelihood%20Decision%20Rule,-Now%20that%20you&text=There%20is%20a%20pattern%20for,is%20H0(or%20H1).) decision rule is used to determine if the given observation is noise or a signal based on the known SNR (signal to noise ratio). 10,000 trials were run for 16 SNR values ranging from 0 to 15 and the truth labels were used to calculate the probability of error, false positive, and false negative. The plot below confirms that a higher SNR yields a lower probability of error.
 
 ![img](./HW1/img.png)
 
 ### HW2
 
-This assignment builds on the signal absent or present scenario from HW1. First, the signal is known to be not constant but instead a random gaussian variable. Next, the signal is again constant but the noise is laplacian instead of gaussian. Finally, the prior probabilities of the signal being absent or present are given and used to make a MAP (Maximum A Priori) decision. 
+This assignment builds on the signal absent or present scenario from HW1. First, the signal is known to be not constant but instead a random gaussian variable. Next, the signal is again constant but the noise is laplacian instead of gaussian. Finally, the prior probabilities of the signal being absent or present are given and used to make a Maximum A-Posteriori [(MAP)](https://machinelearningmastery.com/maximum-a-posteriori-estimation/#:~:text=Maximum%20a%20Posteriori%20estimation%20is,or%20belief%20about%20the%20model.) decision. 
 
 ### HW3
 
