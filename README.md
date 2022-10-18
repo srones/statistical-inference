@@ -50,7 +50,7 @@ This problem uses an autoregressive model to perform stock price forcasting. Giv
 ![img](./HW9/image.png)
 
 
-### HW10 - Detectathon
+### HW9a - Detectathon
 
 In this scenario, cameras are placed over 10 doors in an airport and every time it detects a person pass through, the camear writes the time since the last person passed through. The goal is to determine if and at what time any of the cameras have malfunctioned. This was achieved by looking at a window centered at every time value and finding the point and which there was the greatest MSE between the rates before and after the center. The maximum difference was stored, and found that cameras 1,3 and 7 had large changes in rate after an arbitray time. The image below visualizes the point at which each camera malfunctioned. 
 
